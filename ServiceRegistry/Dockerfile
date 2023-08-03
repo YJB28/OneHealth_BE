@@ -1,6 +1,5 @@
 # Use a lightweight base image for Maven
 FROM maven:3.8.3-openjdk-17-slim AS build
-# FROM adoptopenjdk:17-jdk-hotspot AS build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -12,7 +11,7 @@ COPY . .
 RUN mvn clean install
 
 # Use a lightweight base image for Java
-FROM openjdk:17-jdk-slim
+FROM adoptopenjdk:17-jdk-hotspot
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -25,24 +24,3 @@ EXPOSE 8761
 
 # Run the Spring Boot application when the container starts
 CMD ["java", "-jar", "app.jar"]
-
-# # Use a lightweight base image for Java
-# # Dockerfile
-# FROM openjdk:17-jdk-slim
-
-# # Set the working directory inside the container
-# WORKDIR /app
-# RUN pwd
-# COPY . .
-# RUN ls 
-# # RUN ls ServiceRegistry/target
-# # Copy the Spring Boot application JAR into the container
-# COPY ServiceRegistry/target/ServiceRegistry-0.0.1-SNAPSHOT.jar app.jar
-# #COPY ServiceRegistry-0.0.1-SNAPSHOT.jar app.jar
-
-
-# # Expose the port your Spring Boot application is running on (change the port accordingly)
-# EXPOSE 8761
-
-# # Run the Spring Boot application when the container starts
-# CMD ["java", "-jar", "app.jar"]
