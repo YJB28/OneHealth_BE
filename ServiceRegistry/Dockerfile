@@ -1,6 +1,6 @@
 # Use a lightweight base image for Maven
-# FROM maven:3.8.3-openjdk-17-slim AS build
-FROM adoptopenjdk:17-jdk-hotspot AS build
+FROM maven:3.8.3-openjdk-17-slim AS build
+# FROM adoptopenjdk:17-jdk-hotspot AS build
 
 # Set the working directory inside the container
 WORKDIR /app
