@@ -1,5 +1,3 @@
-
-FROM openjdk:17-jdk-slim
 # Use a lightweight base image for Maven
 FROM maven:3.8.3-openjdk-17-slim AS build
 
@@ -9,6 +7,7 @@ WORKDIR /app
 
 # Copy the source code into the container
 COPY . .
+FROM openjdk:17-jdk-slim
 
 # Build the application using Maven
 RUN mvn clean install
