@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Copy the source code into the container
 COPY . .
-FROM openjdk:17-jdk-slim
+# FROM openjdk:17-jdk-slim
 
 # Build the application using Maven
 RUN mvn clean install
