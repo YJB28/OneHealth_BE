@@ -1,10 +1,12 @@
+
+FROM openjdk:17-jdk-slim
 # Use a lightweight base image for Maven
 FROM maven:3.8.3-openjdk-17-slim AS build
 
 # Set the working directory inside the container
 WORKDIR /app
 # Use a lightweight base image for Java
-FROM openjdk:17-jdk-slim
+
 # Copy the source code into the container
 COPY . .
 
@@ -15,6 +17,8 @@ RUN mvn clean install
 
 # Set the working directory inside the container
 WORKDIR /app
+
+Run ls
 
 # Copy the compiled JAR from the build stage into the container
 COPY --from=build /app/Configserver/target/ConfigServer-0.0.1-SNAPSHOT.jar app.jar
