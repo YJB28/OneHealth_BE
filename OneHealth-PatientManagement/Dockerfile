@@ -27,4 +27,4 @@ COPY --from=build /app/target/OneHealth-PatientManagement-0.0.1-SNAPSHOT.jar app
 EXPOSE 8082
 
 # Run the Spring Boot application when the container starts
-CMD ["java", "-jar", "app1.jar"]
+CMD ["java", "-jar", "app.jar"]
