@@ -1,6 +1,5 @@
-
 # Use a lightweight base image for Maven
-FROM registry.redhat.io/maven:3.8.3-openjdk-17
+FROM maven:3.8.4-openjdk-17 AS build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -12,16 +11,14 @@ COPY . .
 RUN mvn clean install
 
 # Use a lightweight base image for Java
-FROM openjdk:17-jdk-slim
+FROM adoptopenjdk:17-jdk-hotspot
 
 # Set the working directory inside the container
 WORKDIR /app
-RUN ls
-
-RUN pwd
 
 # Copy the compiled JAR from the build stage into the container
 COPY --from=build /app/target/OneHealth-PatientUser-0.0.1-SNAPSHOT.jar app.jar
+
 # Expose the port your Spring Boot application is running on (change the port accordingly)
 EXPOSE 8081
 
