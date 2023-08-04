@@ -16,11 +16,13 @@ FROM openjdk:17-jdk-slim
 # Set the working directory inside the container
 WORKDIR /app
 
+RUN pwd
+
 # Verify the files in the target directory
 RUN ls 
 
 # Copy the compiled JAR from the build stage into the container
-COPY target/ConfigServer-0.0.1-SNAPSHOT.jar app.jar
+# COPY target/ConfigServer-0.0.1-SNAPSHOT.jar app.jar
 
 RUN ls
 
@@ -28,4 +30,4 @@ RUN ls
 EXPOSE 8888
 
 # Run the Spring Boot application when the container starts
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "target/ConfigServer-0.0.1-SNAPSHOT.jar"]
