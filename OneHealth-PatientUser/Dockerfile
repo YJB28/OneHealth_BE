@@ -1,6 +1,6 @@
 
 # Use a lightweight base image for Maven
-FROM maven:3.8.3-openjdk-17-slim AS build
+FROM maven:3.8.3-openjdk-17 AS build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -12,7 +12,7 @@ COPY . .
 RUN mvn clean install
 
 # Use a lightweight base image for Java
-FROM openjdk:17-jdk-slim
+FROM openjdk:17
 
 # Set the working directory inside the container
 WORKDIR /app
