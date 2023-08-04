@@ -17,10 +17,12 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Verify the files in the target directory
-RUN ls /app/Configserver/target
+RUN ls 
 
 # Copy the compiled JAR from the build stage into the container
-COPY --from=build /app/Configserver/target/ConfigServer-0.0.1-SNAPSHOT.jar app.jar
+COPY target/ConfigServer-0.0.1-SNAPSHOT.jar app.jar
+
+RUN ls
 
 # Expose the port your Spring Boot application is running on (change the port accordingly)
 EXPOSE 8888
