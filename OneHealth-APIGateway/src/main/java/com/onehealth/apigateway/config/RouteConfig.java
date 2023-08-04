@@ -12,10 +12,10 @@ public class RouteConfig {
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
 //        		.route("default-path", r -> r.path("/").uri("lb://OneHealth-Default"))
-                .route("PatientUser", r -> r.path("/patientUser/**").uri("lb://OneHealth-PatientUser"))
-                .route("PatientManagement", r -> r.path("/patientProfile/**").uri("lb://OneHealth-PatientManagement"))
-                .route("LifeStyleAndHistory", r -> r.path("/lifeStyleAndHistory/**").uri("lb://OneHealth-LifeStyleAndHistory"))
-                .route("OneHealth-DoctorAppointment", r -> r.path("/doctorAppointment/**").uri("lb://OneHealth-Appointment"))
+                .route("onehealth-PatientUser", r -> r.path("/patientUser/**").uri("lb://onehealth-PatientUser"))
+                .route("onehealth-PatientManagement", r -> r.path("/patientProfile/**").uri("lb://onehealth-PatientManagement"))
+                .route("onehealth-LifeStyleAndHistory", r -> r.path("/lifeStyleAndHistory/**").uri("lb://onehealth-LifeStyleAndHistory"))
+                .route("onehealth-DoctorAppointment", r -> r.path("/doctorAppointment/**").uri("lb://onehealth-Appointment"))
                 // Add more routes for other microservices as needed
                 .build();
     }
