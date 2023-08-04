@@ -10,7 +10,7 @@ COPY . .
 # Build the application using Maven
 RUN mvn clean install
 
-# Use a lightweight base image for Java
+# Use the same image for the runtime stage
 FROM adoptopenjdk:17-jdk-hotspot
 
 # Set the working directory inside the container
